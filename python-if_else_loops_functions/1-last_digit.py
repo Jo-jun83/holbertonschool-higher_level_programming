@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 import random
-num = random.randint(-10000, 10000)
-result = abs(num) % 10
-if num < 0:
-    result = -result
+number = random.randint(-10000, 10000)
+res = abs(number) % 10
+if number < 0:
+    res = -res
 
-if result > 5:
-    print("Last digit of {} is {} and is greater than 5".format(num, result))
-elif result == 0:
-    print("Last digit of {} is {} and is 0".format(num, result))
+if res > 5:
+    print("Last digit of {} is {} and is greater than 5".format(number, res))
+elif res == 0:
+    print("Last digit of {} is {} and is 0".format(number, res))
 else:
-    print("Last digit of {} is {} and is less than 6".format(num, result))
+    print("Last digit of {} is {} and is less than 6".format(number, res))
