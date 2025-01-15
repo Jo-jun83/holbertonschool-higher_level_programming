@@ -6,8 +6,8 @@ if number < 0:
     res = -res
 
 if res > 5:
-    print("Last digit of {} is {} and is greater than 5".format(number, res))
+    print("Last digit of {:d} is {:d} and is greater than 5".format(number, res))
 elif res == 0:
-    print("Last digit of {} is {} and is 0".format(number, res))
+    print("Last digit of {:d} is {:d} and is 0".format(number, res))
 else:
-    print("Last digit of {} is {} and is less than 6".format(number, res))
+    print("Last digit of {:d} is {:d} and is less than 6".format(number, res))
