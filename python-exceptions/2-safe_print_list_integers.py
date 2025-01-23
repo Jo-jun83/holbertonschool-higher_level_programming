@@ -15,11 +15,15 @@ def safe_print_list_integers(my_list=[], x=0):
         TypeError: If an element in the list is not an integer.
         IndexError: If x is greater than the length of the list.
     """
+    count = 0
     try:
         for i in range(x):
-            if isinstance(my_list[i], int):
-                print("{:d}".format(my_list[i]), end='')
-            print()
-            return x
-    except IndexError:
+            try:
+                print("{:d}".format(my_list[i]), end="")
+                count += 1
+            except (ValueError, TypeError):
+                pass
         print()
+    except IndexError:
+        raise
+    return count
