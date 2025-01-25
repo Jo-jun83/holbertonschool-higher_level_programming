@@ -12,11 +12,4 @@ def search_replace(my_list, search, replace):
     Returns:
         list: A new list with the searched elements replaced by the new element
     """
-    new_list = []
-    for i in my_list:
-        if i == search:
-            search = replace
-            new_list.append(replace)
-        else:
-            new_list.append(i)
-    return new_list
+    return [replace if item == search else item for item in my_list]
