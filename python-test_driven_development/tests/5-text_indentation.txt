@@ -23,3 +23,8 @@ Test with float
     >>> text_indentation(454.54)
     Traceback (most recent call last):
     TypeError: text must be a string
+
+Test with None
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
