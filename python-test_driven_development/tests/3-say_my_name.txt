@@ -9,7 +9,7 @@ Import function from module:
 
 Test with 2 strings
     >>> say_my_name("James", "Bond")
-    James Bond
+    My name is James Bond
 
 Test with 2 integers
     >>> say_my_name(2, 3)
@@ -25,3 +25,13 @@ Test with an integer in second argument
     >>> say_my_name("test", 3)
     Traceback (most recent call last):
     TypeError: last_name must be a string
+
+Test with None in first argument
+    >>> say_my_name(None, "test")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Test with None in first argument
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
