@@ -35,3 +35,7 @@ Test with None in first argument
     >>> say_my_name(None)
     Traceback (most recent call last):
     TypeError: first_name must be a string
+
+Test with None in empty string
+    >>> say_my_name("", "")
+    My name is  
