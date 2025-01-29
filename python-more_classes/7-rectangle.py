@@ -102,19 +102,24 @@ class Rectangle:
     def __str__(self):
         """
         Returns a string representation of the rectangle
-        using the '#' character.
-
-        If either the width or height of the rectangle is
-        0, returns an empty string.
-
+        using the `print_symbol`.
+        If either the width or height of the rectangle is 0,
+        returns an empty string.
+        Otherwise, constructs a string where each line represents
+        a row of the rectangle,
+        with each row containing the `print_symbol` repeated `width`
+        times, and the rows
+        separated by newline characters.
         Returns:
-            str: The string representation of the rectangle
-            or an empty string if width or height is 0.
+            str: The string representation of the rectangle.
         """
         if self.__width == 0 or self.__height == 0:
             return ""
         else:
-            rectangle_str = ["#" * self.__width for i in range(self.__height)]
+            rectangle_str = [
+                str(self.print_symbol) * self.__width
+                for i in range(self.__height)
+            ]
             return "\n".join(rectangle_str)
 
     def __repr__(self):
