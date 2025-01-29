@@ -4,14 +4,13 @@
 
 
 class Rectangle:
-
-    number_of_instances = 0
-
     """this class define a rectangle"""
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
         Rectangle.number_of_instances += 1
+
+    number_of_instances = 0
 
     @property
     def width(self):

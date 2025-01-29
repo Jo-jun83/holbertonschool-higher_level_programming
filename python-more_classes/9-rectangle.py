@@ -4,6 +4,12 @@
 
 
 class Rectangle:
+    """this class define a rectangle"""
+    def __init__(self, width=0, height=0, print_symbol="#"):
+        self.width = width
+        self.height = height
+        Rectangle.number_of_instances += 1
+
     number_of_instances = 0
     print_symbol = "#"
 
@@ -30,12 +36,6 @@ class Rectangle:
             Rectangle: A new Rectangle instance with w and h set to size.
         """
         return cls(size, size)
-
-    """this class define a rectangle"""
-    def __init__(self, width=0, height=0, print_symbol="#"):
-        self.width = width
-        self.height = height
-        Rectangle.number_of_instances += 1
 
     @property
     def width(self):

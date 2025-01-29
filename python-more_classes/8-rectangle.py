@@ -4,6 +4,12 @@
 
 
 class Rectangle:
+    """this class define a rectangle"""
+    def __init__(self, width=0, height=0, print_symbol="#"):
+        self.width = width
+        self.height = height
+        Rectangle.number_of_instances += 1
+
     number_of_instances = 0
     print_symbol = "#"
 
@@ -17,12 +23,6 @@ class Rectangle:
             return rect_1
         else:
             return rect_1 if rect_1.area() > rect_2.area() else rect_2
-
-    """this class define a rectangle"""
-    def __init__(self, width=0, height=0, print_symbol="#"):
-        self.width = width
-        self.height = height
-        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
