@@ -104,10 +104,10 @@ class Rectangle:
                   If either the width or height is zero, the perimeter
                   is considered to be zero.
         """
-        if self.width == 0 or self.height == 0:
+        if self.width == 0 or self.__height == 0:
             return 0
         else:
-            result = (self.width + self.height) * 2
+            result = (self.__width + self.__height) * 2
             return result
 
     def __str__(self):
@@ -122,13 +122,10 @@ class Rectangle:
             str: The string representation of the rectangle
             or an empty string if width or height is 0.
         """
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
         else:
-            rectangle_str = [
-                str(self.print_symbol) * self.width
-                for i in range(self.height)
-            ]
+            rectangle_str = ["#" * self.__width for i in range(self.__height)]
             return "\n".join(rectangle_str)
 
     def __repr__(self):
@@ -140,8 +137,14 @@ class Rectangle:
         Returns:
             str: A string representation of the Rectangle instance.
         """
-        return "Rectangle({}, {})".format(self.width, self.height)
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
+        """
+        Destructor method that is called when an instance of
+        Rectangle is deleted.
+        Decrements the class attribute `number_of_instances`
+        by 1 and prints a message.
+        """
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")

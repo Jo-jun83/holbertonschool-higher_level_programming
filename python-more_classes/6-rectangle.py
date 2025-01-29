@@ -9,8 +9,8 @@ class Rectangle:
 
     """this class define a rectangle"""
     def __init__(self, width=0, height=0):
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -111,10 +111,10 @@ class Rectangle:
             str: The string representation of the rectangle
             or an empty string if width or height is 0.
         """
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
         else:
-            rectangle_str = ["#" * self.width for i in range(self.height)]
+            rectangle_str = ["#" * self.__width for i in range(self.__height)]
             return "\n".join(rectangle_str)
 
     def __repr__(self):
@@ -126,8 +126,14 @@ class Rectangle:
         Returns:
             str: A string representation of the Rectangle instance.
         """
-        return "Rectangle({}, {})".format(self.width, self.height)
+        return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
+        """
+        Destructor method that is called when an instance of
+        Rectangle is deleted.
+        Decrements the class attribute `number_of_instances`
+        by 1 and prints a message.
+        """
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
