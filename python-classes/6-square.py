@@ -85,18 +85,11 @@ class Square:
             self.__position = value
 
     def my_print(self):
-        """
-        Prints the square using the '#' character.
-
-        The size of the square is determined by the private instance
-        attribute __size.
-        If __size is 0, it prints an empty line.
-        """
+        """Prints the square with the character #"""
         if self.__size == 0:
             print()
             return
         for _ in range(self.__position[1]):
             print()
         for _ in range(self.__size):
-            print("_" * self.__position[0], end="")
-            print("#" * self.__size)
+            print(" " * self.__position[0] + "#" * self.__size)
