@@ -135,12 +135,12 @@ class Rectangle:
             str: The string representation of the rectangle
             or an empty string if width or height is 0.
         """
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             return ""
         else:
             rectangle_str = [
-                str(self.print_symbol) * self.__width
-                for i in range(self.__height)
+                str(self.print_symbol) * self.width
+                for i in range(self.height)
             ]
             return "\n".join(rectangle_str)
 
@@ -153,7 +153,7 @@ class Rectangle:
         Returns:
             str: A string representation of the Rectangle instance.
         """
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        return "Rectangle({}, {})".format(self.width, self.height)
 
     def __del__(self):
         Rectangle.number_of_instances -= 1
