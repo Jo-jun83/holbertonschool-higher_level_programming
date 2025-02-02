@@ -14,7 +14,8 @@ class Node:
 
         Args:
             data (int): The data value of the node.
-            next_node (Node, optional): The next node in the linked list. Defaults to None.
+            next_node (Node, optional): The next node in the linked list.
+            Defaults to None.
         """
         self.data = data
         self.next_node = next_node
@@ -28,20 +29,21 @@ class Node:
             int: The data stored in the node.
         """
         return self.__data
-    
+
     @data.setter
     def data(self, value):
         """
         Setter method for the 'data' attribute.
 
-        This method sets the value of the 'data' attribute, ensuring that the value is an integer.
+        This method sets the value of the 'data' attribute, ensuring that
+        the value is an integer.
         If the value is not an integer, a TypeError is raised.
         """
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
         else:
             self.__data = value
-    
+
     @property
     def next_node(self):
         """
@@ -51,7 +53,7 @@ class Node:
             Node: The next node in the linked list.
         """
         return self.__next_node
-    
+
     @next_node.setter
     def next_node(self, value):
         """
@@ -61,6 +63,7 @@ class Node:
             raise TypeError("next_node must be a Node object")
         else:
             self.__next_node = value
+
 
 class SinglyLinkedList:
     def __init__(self):
@@ -73,7 +76,8 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         """
-        Inserts a new Node into the correct sorted position in the list (increasing order).
+        Inserts a new Node into the correct sorted position in the
+        list (increasing order).
 
         Args:
             value (int): The value to insert into the list.
