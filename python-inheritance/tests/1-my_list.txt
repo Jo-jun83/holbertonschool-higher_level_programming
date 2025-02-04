@@ -16,3 +16,38 @@ Test with negative number
     >>> my_list = MyList([2, -3, 7, 1])
     >>> my_list.print_sorted()
     [-3, 1, 2, 7]
+
+Test with an empty list
+    >>> my_list = MyList([])
+    >>> my_list.print_sorted()
+    []
+
+Test with duplicate numbers
+    >>> my_list = MyList([5, 2, 8, 2, 5])
+    >>> my_list.print_sorted()
+    [2, 2, 5, 5, 8]
+
+Test with already sorted list
+    >>> my_list = MyList([1, 2, 3, 4, 5])
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+Test with reverse sorted list
+    >>> my_list = MyList([10, 9, 8, 7])
+    >>> my_list.print_sorted()
+    [7, 8, 9, 10]
+
+Test with all negative numbers
+    >>> my_list = MyList([-5, -1, -10, -3])
+    >>> my_list.print_sorted()
+    [-10, -5, -3, -1]
+
+Test with mix of negative and positive numbers
+    >>> my_list = MyList([-2, 4, -1, 0, 3])
+    >>> my_list.print_sorted()
+    [-2, -1, 0, 3, 4]
+
+Test with a single element
+    >>> my_list = MyList([42])
+    >>> my_list.print_sorted()
+    [42]

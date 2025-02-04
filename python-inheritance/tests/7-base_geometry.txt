@@ -37,3 +37,27 @@ Invalid integer (zero):
     Traceback (most recent call last):
         ...
     ValueError: size must be greater than 0
+
+Testing integer_validator() with a string instead of an integer
+-----------------------------------------------------------
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("width", "10")
+    Traceback (most recent call last):
+        ...
+    TypeError: width must be an integer
+
+Testing integer_validator() with a negative number
+-------------------------------------------------
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("height", -5)
+    Traceback (most recent call last):
+        ...
+    ValueError: height must be greater than 0
+
+Testing integer_validator() with zero
+--------------------------------------
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("size", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be greater than 0
