@@ -18,25 +18,25 @@ class VerboseList(list):
         the item was added.
         """
         super().append(item)
-        print("Added [{}] to the list.".format(item))
+        print("Added {} to the list.".format(item))
 
     def extend(self, x):
         """
         Extend the list by appending elements from the iterable `x`.
         """
         super().extend(x)
-        print("Extended the list with [{}] items.".format(len(x)))
+        print("Extended the list with {} items.".format(len(x)))
 
     def remove(self, item):
         """
         Remove an item from the list and print a message.
         """
         super().remove(item)
-        print("Removed [{}] from the list.".format(item))
+        print("Removed {} from the list.".format(item))
 
     def pop(self, index=-1):
         """
         Remove and return item at index (default last).
         """
         item = super().pop(index)
-        print("Popped [{}] from the list.".format(item))
+        print("Popped {} from the list.".format(item))
