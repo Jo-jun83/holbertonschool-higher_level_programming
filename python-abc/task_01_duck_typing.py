@@ -44,7 +44,7 @@ class Circle(Shape):
         """
         Calculate the area of the circle.
         """
-        return math.pi * self.__radius * self.__radius
+        return math.pi * self.__radius ** 2
 
     def perimeter(self):
         """
