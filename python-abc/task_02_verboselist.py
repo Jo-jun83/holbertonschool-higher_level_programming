@@ -40,3 +40,4 @@ class VerboseList(list):
         """
         item = super().pop(index)
         print("Popped {} from the list.".format(item))
+        return item
