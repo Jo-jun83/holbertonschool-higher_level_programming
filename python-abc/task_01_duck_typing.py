@@ -38,19 +38,19 @@ class Circle(Shape):
         """
         Initializes a new instance of the class with a specified radius.
         """
-        self.radius = abs(radius)
+        self.__radius = abs(radius)
 
     def area(self):
         """
         Calculate the area of the circle.
         """
-        return math.pi * self.radius * self.radius
+        return math.pi * self.__radius * self.__radius
 
     def perimeter(self):
         """
         Calculate the perimeter of the circle.
         """
-        return 2 * math.pi * self.radius
+        return 2 * math.pi * self.__radius
 
 
 class Rectangle(Shape):
@@ -62,20 +62,20 @@ class Rectangle(Shape):
         Initializes a new instance of the class with a specified width
         and height.
         """
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
 
     def area(self):
         """
         Calculate the area of the rectangle.
         """
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """
         Calculate the perimeter of the Rectangle.
         """
-        return (self.width + self.height) * 2
+        return (self.__width + self.__height) * 2
 
 
 def shape_info(shape):
