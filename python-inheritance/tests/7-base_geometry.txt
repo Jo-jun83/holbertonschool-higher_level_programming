@@ -69,3 +69,67 @@ Testing integer_validator() with zero
     >>> bg.integer_validator()
     Traceback (most recent call last):
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+### **Test with a very large integer**  
+    >>> bg.integer_validator("big_number", 999999999999999999999999999)
+    
+### **Test with a float (should fail)**  
+    >>> bg.integer_validator("pi", 3.14)
+    Traceback (most recent call last):
+        ...
+    TypeError: pi must be an integer
+
+### **Test with NaN (should fail)**  
+    >>> import math
+    >>> bg.integer_validator("NaN", math.nan)
+    Traceback (most recent call last):
+        ...
+    TypeError: NaN must be an integer
+
+### **Test with a list (should fail)**  
+    >>> bg.integer_validator("list", [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: list must be an integer
+
+### **Test with a tuple (should fail)**  
+    >>> bg.integer_validator("tuple", (1, 2))
+    Traceback (most recent call last):
+        ...
+    TypeError: tuple must be an integer
+
+### **Test with a dictionary (should fail)**  
+    >>> bg.integer_validator("dictionary", {"key": 10})
+    Traceback (most recent call last):
+        ...
+    TypeError: dictionary must be an integer
+
+### **Test with None (should fail)**  
+    >>> bg.integer_validator("none", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: none must be an integer
+
+### **Test with a boolean (should fail but might pass due to Python treating booleans as integers)**  
+    >>> bg.integer_validator("boolean", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: boolean must be an integer
+
+    >>> bg.integer_validator("boolean", False)
+    Traceback (most recent call last):
+        ...
+    TypeError: boolean must be an integer
+
+
+### **Test with two strings (should fail)**  
+    >>> bg.integer_validator("first", "hello")
+    Traceback (most recent call last):
+        ...
+    TypeError: first must be an integer
+
+    >>> bg.integer_validator("second", "world")
+    Traceback (most recent call last):
+        ...
+    TypeError: second must be an integer
+
