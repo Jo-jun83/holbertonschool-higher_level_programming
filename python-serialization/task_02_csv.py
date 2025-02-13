@@ -14,15 +14,17 @@ def convert_csv_to_json(filename):
         bool: True if the conversion was successful,
         False if the file was not found.
     """
+    data = []
     try:
         with open(filename, "r") as csv_file:
             reader = csv.DictReader(csv_file)
-            data = [row for row in reader]
-
-        with open(filename, "w", encoding="utf-8") as json_file:
-            json.dump(data, json_file)
-        return True
+            for row in reader:
+                data.append(row)
 
     except FileNotFoundError:
         print("file not found")
         return False
+
+    with open(filename, "w", encoding="utf-8") as json_file:
+        json.dump(data, json_file)
+    return True

@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+This module provides functionality for serializing and deserializing
+a custom object using the pickle module.
+"""
+
+
 import pickle
 
 
