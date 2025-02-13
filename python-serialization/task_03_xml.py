@@ -13,14 +13,13 @@ def serialize_to_xml(dictionary, filename):
     Returns:
         bool: True if the serialization is successful.
     """
-    data = ET.Element("data")
+    root = ET.Element("data")
 
     for key, value in dictionary.items():
-        element = ET.Element(key)
+        element = ET.SubElement(root, key)
         element.text = str(value)
-        data.append(element)
 
-    tree = ET.ElementTree(data)
+    tree = ET.ElementTree(root)
     tree.write(filename, encoding="utf-8", xml_declaration=True)
 
     return True
@@ -35,12 +34,11 @@ def deserialize_from_xml(filename):
               Returns None if the file is not found or if there is an error
               parsing the XML.
     """
-    try:
-        tree = ET.parse(filename)
-        root = tree.getroot()
+    tree = ET.parse(filename)
+    root = tree.getroot()
 
-        data_dict = {}
-        for child in root:
-            data_dict[child.tag] = child.text
+    data_dict = {}
+    for child in root:
+        data_dict[child.tag] = child.text
 
-        return data_dict
+    return data_dict
