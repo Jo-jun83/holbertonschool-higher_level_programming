@@ -41,25 +41,6 @@ def deserialize_from_xml(filename):
 
         data_dict = {}
         for child in root:
-            data_dict[child.tag] = _convert_type(child.text)
+            data_dict[child.tag] = child.text
 
         return data_dict
-
-    except FileNotFoundError:
-        print("File not found:", filename)
-        return None
-    except ET.ParseError:
-        print("Error parsing XML file:", filename)
-        return None
-
-
-def _convert_type(value):
-    """
-    Convert the input string to an appropriate numeric type if possible.
-    """
-    if value.isdigit():
-        return int(value)
-    try:
-        return float(value)
-    except ValueError:
-        return value
