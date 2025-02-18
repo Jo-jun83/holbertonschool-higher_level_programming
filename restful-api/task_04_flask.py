@@ -38,8 +38,14 @@ def get_user(username):
     return jsonify({"error": "User not found"}), 404
 
 
+@app.route('/data')
+def get_all_users():
+    """Returns a list of all usernames stored in the API."""
+    return jsonify(list(users.keys()))
+
+
 @app.route("/add_user", methods=["POST"])
-def post_register():
+def post_user():
     """
     Add a new user to the users dictionary.
     """
