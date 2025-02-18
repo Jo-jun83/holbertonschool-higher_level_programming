@@ -19,14 +19,6 @@ def home():
     return "Welcome to the Flask API!"
 
 
-@app.route('/users')
-def get_users():
-    """
-    Retrieve a list of users in JSON format.
-    """
-    return jsonify({"users": users})
-
-
 @app.route('/status')
 def get_status():
     """
