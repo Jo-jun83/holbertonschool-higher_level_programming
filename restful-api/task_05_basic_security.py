@@ -68,14 +68,17 @@ def verify_password(username, password):
 @app.route('/basic-protected')
 @auth.login_required
 def basic_protected():
+    """
+    Provides a basic authentication message.
+    """
     return "Basic Auth: Access Granted"
 
-@app.route("/")
-def home():
-    return "ok ça marche "
-    
+
 @app.route('/login', methods=["POST"])
 def post_login():
+    """
+    Handle user login and return an access token.
+    """
     data = request.get_json()
     if data is None:
         return jsonify({"error": "Bad Request"}), 400
@@ -86,19 +89,34 @@ def post_login():
     if not username or not password:
         return jsonify({"error": "Bad Request"}), 400
 
-
     user = users.get(username)
     if user is None or not check_password_hash(user["password"], password):
         return jsonify({"error": "Unauthorized"}), 401
-    
+
     token = create_access_token(identity=username)
-    return jsonify(access_token = token), 200
+    return jsonify(access_token=token), 200
 
 
 @app.route('/jwt-protected')
 @jwt_required()
 def jwt_protected():
+    """
+    Function to simulate JWT (JSON Web Token) protected access.
+    """
     return "JWT Auth: Access Granted"
+
+
+@app.route("/admin-only")
+@jwt_required()
+def admin_only():
+    """
+    Checks if the current user has admin privileges.
+    """
+    user = get_jwt_identity()
+    if users[user]["role"] != "admin":
+        return jsonify({"error": "Admin access required"}), 403
+    return "Admin Access: Granted", 200
+
 
 if __name__ == "__main__":
     app.run()
