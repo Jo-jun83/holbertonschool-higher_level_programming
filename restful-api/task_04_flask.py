@@ -49,27 +49,18 @@ def post_user():
     """
     Add a new user to the users dictionary.
     """
-    if request.is_json:
-        data = request.get_json()
-        username = data.get("username")
-        name = data.get("name")
-        age = data.get("age")
-        city = data.get("city")
+    data = request.get_json()
+    username = data.get("username")
 
-        if not username:
-            return jsonify({"error": "Username is required"}), 400
+    if not username:
+        return jsonify({"error": "Username is required"}), 400
 
-        users[username] = {
-            "username": username,
-            "name": name,
-            "age": age,
-            "city": city
-        }
-        return jsonify({"message": "User added",
-                        "user": users[username]
-                        }), 201
-    else:
-        return jsonify({"error": "Request must be JSON"}), 400
+    users[username] = data
+    return jsonify({"message": "User added",
+                    "user": data
+                    }), 201
+
+    return jsonify({"error": "Request must be JSON"}), 400
 
 
 if __name__ == "__main__":
