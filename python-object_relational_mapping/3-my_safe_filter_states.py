@@ -24,7 +24,7 @@ if __name__ == "__main__":
     cursor = db.cursor()
     cursor.execute(
         "SELECT * FROM states WHERE name = %s \
-        ORDER BY states.id;",(sys.argv[4],)
+        ORDER BY states.id;", (sys.argv[4],)
     )
     results = cursor.fetchall()
     for result in results:
