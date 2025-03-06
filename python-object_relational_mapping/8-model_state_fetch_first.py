@@ -22,7 +22,7 @@ if __name__ == "__main__":
     )
 
     session = Session(engine)
-    for instance in session.query(State).order_by(State.id).limit(1).all():
-        if session.query(State).first():
-            print("Nothing")
-        print("{}: {}".format(instance.id, instance.name))
+    results = session.query(State).order_by(State.id).first()
+    if not results:
+        print("Nothing")
+    print("{}: {}".format(results.id, results.name))
