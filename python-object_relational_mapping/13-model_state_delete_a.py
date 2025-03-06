@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 This module connects to a MySQL database using SQLAlchemy
-and changes the name of a State object from the database .
+and deletes all State objects with a name containing the
+letter a from the database .
 """
 
 import sys
@@ -24,6 +25,8 @@ if __name__ == "__main__":
     )
 
     session = Session(engine)
-    state = session.query(State).filter(State.id == 2).first()
-    state.name = "New Mexico"
-    session.commit()
+    states = session.query(State).filter(
+        State.name.like('%a%')).all()
+    for state in states:
+        session.delete(state)
+        session.commit()
