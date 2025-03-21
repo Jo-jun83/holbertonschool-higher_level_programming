@@ -8,7 +8,8 @@ def generate_invitations(template, attendees):
         raise TypeError("template must be a string")
     if not isinstance(attendees, list):
         raise TypeError("attendees must be a list of dictionaries")
-    
+    if not all(isinstance(attendee, dict) for attendee in attendees):
+        raise TypeError("all attendees must be dictionaries")
     if not template:
         print("Template is empty, no output files generated.")
         return
