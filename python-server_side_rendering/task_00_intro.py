@@ -35,3 +35,5 @@ def generate_invitations(template, attendees):
             print(f"Missing key in attendee data: {e}")
         except Exception as e:
             print(f"An error occurred: {e}")
+
+    return generated_files
